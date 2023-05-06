@@ -3,6 +3,7 @@ package com.qiniu.qplayer2.ui.page.longvideo
 import com.qiniu.qmedia.component.player.QMediaModelBuilder
 import com.qiniu.qmedia.component.player.QURLType
 import com.qiniu.qmedia.component.player.QVideoRenderType
+import com.qiniu.qplayer2.RtmpConfig
 import com.qiniu.qplayer2ext.commonplayer.data.DisplayOrientation
 import com.qiniu.qplayer2ext.commonplayer.data.CommonPlayerDataSource
 import com.qiniu.qplayer2.repository.setting.PlayerSettingRespostory
@@ -17,6 +18,25 @@ object LongPlayerDataSourceFactory {
         var builder = QMediaModelBuilder()
         var url = ""
         var name = ""
+
+        builder = QMediaModelBuilder()
+        url = RtmpConfig.url
+        builder.addElement("", QURLType.QAUDIO_AND_VIDEO, 480, url, true)
+        name = "视频监控-${RtmpConfig.url}"
+        videoParams = LongVideoParams(name, name.hashCode().toLong())
+        dataSourceBuilder.addVideo(
+            videoParams,
+            arrayListOf(
+                LongPlayableParams(
+                    builder.build(true),
+                    LongControlPanelType.Normal.type,
+                    DisplayOrientation.LANDSCAPE,
+                    LongEnviromentType.LONG.type,
+                    0L
+                )
+            )
+        )
+
         builder = QMediaModelBuilder()
 
         builder.addElement(

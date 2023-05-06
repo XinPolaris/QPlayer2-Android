@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.qiniu.qmedia.component.player.*
 import com.qiniu.qmedia.ui.QTexturePlayerView
 import com.qiniu.qplayer2.R
+import com.qiniu.qplayer2.RtmpConfig
 import com.qiniu.qplayer2.logic.PlayerSettingVM
 import com.qiniu.qplayer2.ui.widget.*
 
@@ -91,6 +92,11 @@ class SimpleLongVideoActivity : AppCompatActivity(), IVideoHolderClickListener {
     private fun initMediaModel() {
         var builder = QMediaModelBuilder()
         var url = ""
+
+        builder = QMediaModelBuilder()
+        url = RtmpConfig.url
+        builder.addElement("", QURLType.QAUDIO_AND_VIDEO, 0, url, true)
+        mVideoList.add(Pair(url, builder.build(true)))
 
         //音视频分开2个流的视频要用精准seek
         builder = QMediaModelBuilder()

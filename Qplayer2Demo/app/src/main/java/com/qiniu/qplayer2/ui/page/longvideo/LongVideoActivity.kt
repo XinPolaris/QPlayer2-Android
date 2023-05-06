@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
+import com.qiniu.qmedia.component.player.QLogLevel
 import com.qiniu.qplayer2.R
 import com.qiniu.qplayer2ext.commonplayer.CommonPlayer
 import com.qiniu.qplayer2ext.commonplayer.CommonPlayerConfig
@@ -78,6 +79,7 @@ class LongVideoActivity : AppCompatActivity() {
             .enableFunctionWidget()
             .enableGesture()
             .enableToast()
+            .setLogLevel(QLogLevel.LOG_VERBOSE)
             .enableScreenRender(CommonPlayerConfig.ScreenRenderType.SURFACE_VIEW)
             .setDecodeType(PlayerSettingRespostory.decoderType)
             .setSeekMode(PlayerSettingRespostory.seekMode)
@@ -87,7 +89,6 @@ class LongVideoActivity : AppCompatActivity() {
             .setRenderRatio(PlayerSettingRespostory.ratioType)
             .setSEIEnable(PlayerSettingRespostory.seiEnable)
             .build()
-
         mCommonPlayer = CommonPlayer(config)
         mPlayerDataSource.getVideoParamsList()[0]?.also {
             mCommonPlayer.playerVideoSwitcher.switchVideo(it.id)

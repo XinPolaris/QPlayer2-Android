@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.qiniu.qplayer2.BuildConfig
 import com.qiniu.qplayer2.R
+import com.qiniu.qplayer2.RtmpConfig
 import com.qiniu.qplayer2.ui.page.longvideo.LongVideoActivity
 import com.qiniu.qplayer2.ui.page.simplelongvideo.SimpleLongVideoActivity
 import com.qiniu.qplayer2.ui.page.setting.SettingActivity
@@ -43,5 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.version_TV).setText("core version:${BuildConfig.VERSION_NAME}")
         // Example of a call to a native method
+
+        findViewById<TextView>(R.id.tv_custom_rtmp).text = RtmpConfig.url
     }
 }

@@ -11,7 +11,7 @@
         android:id="@+id/long_video_player_BTN"
         android:layout_width="240dp"
         android:layout_height="80dp"
-        android:text="长视频"
+        android:text="视频监控"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/long_video_player_BTN"
         app:layout_constraintBottom_toTopOf="@+id/short_video_player_BTN"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/short_video_player_BTN"
@@ -37,7 +37,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/simple_long_video_player_BTN"
-        app:layout_constraintBottom_toTopOf="@+id/setting_BTN"/>
+        app:layout_constraintBottom_toTopOf="@+id/setting_BTN"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/setting_BTN"
@@ -66,4 +67,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_custom_rtmp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:text="rtmp://122.224.95.115:2045/2xenzweetxzqq/HX1208"
+        android:textIsSelectable="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -133,7 +133,7 @@ object PlayerSettingRespostory : SharedPreferences.OnSharedPreferenceChangeListe
         get() {
             return mSharedPreferencesHelper.optBoolean(
                 SEI_SETTING_KEY_NAME,
-                false
+                true
             )
         }
         set(value) {
